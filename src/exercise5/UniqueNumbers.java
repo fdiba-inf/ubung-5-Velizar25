@@ -8,34 +8,31 @@ public class UniqueNumbers {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter number count: ");
-        int numberCount = input.nextInt();
+        int size = input.nextInt();
+        int arr[] = new int[size];
 
-        int[] numbers = new int[numberCount];
+        //int[] numbers = new int[size];
 
         System.out.println("Enter numbers: ");
-        for (int index = 0; index < numbers.length; index++) {
-            numbers[index] = input.nextInt();
+        for (int index = 0; index < size; index++) {
+            arr[index] = input.nextInt();
         }
 
-        int[] uniqueNumbers = new int[numbers.length];
-        // Find unique numbers in numbers
+        int[] arrDup = new int[size];
 
-        int arr[] = new int[size];
-        int arrDup[] = new int[size];
-
-        for(int i = 0; i < size; i++);{
-          for(int j = 0; j < size; j++) {
-            if(arr[i] == arrDup[j])
+        arrDup[0] = arr[0];
+        for(int index = 1; index < size; index++) {
+          for (int j = 0; j < size; j++) {
+            if(arr[index] == arrDup[j]) {
               break;
-          } else if(arrDup[j] == 0){
-            arrDup[j] = arr[i];
-            break;
+            } else if (arrDup[j] == 0) {
+              arrDup[j] = arr[index];
+              break;
+            }
           }
-
         }
 
-
-        String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
-        System.out.println("Unique numbers: " + uniqueNumbersAsString);
+        String asStringArrDup= Arrays.toString(arrDup);
+        System.out.println("Unique numbers: " + asStringArrDup);
     }
 }
